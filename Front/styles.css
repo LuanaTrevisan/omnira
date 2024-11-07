@@ -1,163 +1,133 @@
-/* Reset básico de margens e padding */
-* {
+/* Definindo estilo global para a página */
+body {
+    font-family: 'Arial', sans-serif; /* Font para a página */
+    background-color: #000000; /* Fundo preto */
+    color: #00FFFF; /* Texto azul */
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Altura total da tela */
+    flex-direction: column;
 }
 
-/* Cor de fundo e fonte geral */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f8f8;
-    color: #333;
-    padding: 20px;
-    margin: 0;
+/* Centralizando conteúdo de cada página */
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-/* Container principal */
-.content {
-    width: 100%;
-    max-width: 900px;
+/* Estilos específicos para cada tela */
+.login-container, .home-container, .estoque-container, .ponto-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px; /* Bordas mais arredondadas */
+    padding: 40px; /* Aumentando o padding */
+    width: 400px; /* Aumentando a largura */
     text-align: center;
+    max-width: 90%; /* Garantir que não ultrapasse a tela em dispositivos móveis */
+    box-sizing: border-box;
 }
 
-/* Título principal */
-.main-title {
-    font-size: 3rem;
-    color: #333;
-    margin-bottom: 40px;
-    transition: all 0.3s ease;
-}
-
-.main-title:hover {
-    color: #FF6347;
-    transform: scale(1.1);
-}
-
-/* Estilo dos botões de navegação */
-.buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-}
-
-.nav-btn {
-    background-color: #FF6347;
-    color: white;
-    padding: 16px 30px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-.nav-btn:hover {
-    background-color: #FF4500;
-    transform: translateY(-4px);
-}
-
-.nav-btn:active {
-    background-color: #FF6347;
-    transform: translateY(2px);
-}
-
-/* Estilo para a seção de estoque */
-.stock-item {
-    font-size: 1.2rem;
-    margin-top: 15px;
-}
-
-.stock-quantity {
+h1 {
+    font-size: 36px; /* Tamanho maior para o título */
+    margin-bottom: 30px;
     font-weight: bold;
-    color: #FF6347;
 }
 
-.update-btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    font-size: 1rem;
+label {
+    display: block;
+    font-size: 18px; /* Aumentando o tamanho da fonte das labels */
+    margin: 15px 0 5px;
+}
+
+input {
+    display: block;
+    width: 100%;
+    padding: 15px; /* Aumentando o padding dos campos de input */
+    font-size: 18px; /* Aumentando o tamanho da fonte nos inputs */
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 2px solid #00FFFF;
+    background-color: #222222;
+    color: #00FFFF;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #00FFFF;
+    color: #000000;
     border: none;
-    border-radius: 8px;
+    padding: 15px 25px; /* Botões maiores */
+    border-radius: 25px; /* Bordas arredondadas */
     cursor: pointer;
-    transition: all 0.3s ease;
+    font-size: 18px; /* Tamanho maior da fonte nos botões */
+    width: 100%;
     margin-top: 20px;
 }
 
-.update-btn:hover {
-    background-color: #45a049;
-    transform: translateY(-2px);
+button:hover {
+    background-color: #00CCCC;
 }
 
-.update-btn:active {
-    background-color: #4CAF50;
-    transform: translateY(1px);
+button:focus {
+    outline: none;
 }
 
-/* Estilo do botão de voltar */
-.back-btn {
-    background-color: #607D8B;
-    color: white;
-    padding: 12px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+/* Estilo para links, quando existir, como por exemplo na tela de erro */
+a {
+    color: #00FFFF;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Tela Home */
+.home-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    padding: 40px;
+    width: 400px;
+    text-align: center;
+    max-width: 90%;
+}
+
+.home-container button {
     margin-top: 20px;
+    width: 100%;
+    padding: 15px;
 }
 
-.back-btn:hover {
-    background-color: #546e7a;
-    transform: translateY(-2px);
+/* Estilos para as páginas de Estoque e Ponto */
+.estoque-container, .ponto-container {
+    padding: 40px;
+    width: 400px;
+    max-width: 90%;
 }
 
-.back-btn:active {
-    background-color: #607D8B;
-    transform: translateY(1px);
+.estoque-container button, .ponto-container button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 15px;
 }
 
-/* Efeitos de animação */
-.fade-in {
-    animation: fadeInEffect 0.8s ease-in-out;
-}
-
-@keyframes fadeInEffect {
-    0% {
-        opacity: 0;
+/* Responsividade */
+@media (max-width: 768px) {
+    .login-container, .home-container, .estoque-container, .ponto-container {
+        width: 90%; /* Menor largura em dispositivos menores */
+        padding: 20px; /* Reduzindo padding em telas menores */
     }
-    100% {
-        opacity: 1;
+
+    h1 {
+        font-size: 30px; /* Ajustando título em telas menores */
     }
-}
-/* Estilo do botão de voltar */
-.back-btn {
-    background-color: #607D8B;
-    color: white;
-    padding: 12px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
 
-.back-btn:hover {
-    background-color: #546e7a;
-    transform: translateY(-2px);
-}
-
-.back-btn:active {
-    background-color: #607D8B;
-    transform: translateY(1px);
+    input, button {
+        font-size: 16px; /* Ajustando os tamanhos das fontes para inputs e botões */
+    }
 }

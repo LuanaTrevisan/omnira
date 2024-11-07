@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omnira ERP</title>
+    <title>Omnira - Login</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-<div class="content">
-    <div class="home-container">
-        <h1 class="main-title">Bem-vindo ao Omnira ERP</h1>
-        <div class="buttons">
-            <button id="estoqueButton" class="nav-btn">Controle de Estoque</button>
-            <button id="pontoButton" class="nav-btn">Controle de Ponto</button>
-            <button id="relatorioButton" class="nav-btn">Relatórios</button>
-        </div>
-    </div>
+<!-- Tela de Login -->
+<div class="login-container">
+    <h1>Bem-vindo!</h1>
+    <form id="loginForm" action="home.html" method="GET">
+        <label for="username">Usuário</label>
+        <input type="text" id="username" name="username" placeholder="Digite seu usuário" required>
+
+        <label for="password">Senha</label>
+        <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+
+        <button type="submit">Entrar</button>
+    </form>
 </div>
 
-<script src="script.js"></script>
+<script src="scripts.js"></script>
 </body>
-
 </html>
-
