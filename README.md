@@ -23,14 +23,35 @@ Omnira é um sistema de gestão empresarial (ERP) modular projetado para atender
 
 O projeto é estruturado em várias pastas, organizadas da seguinte forma:
 
-- `src/main/java/br/com/projeto/omnira`: Contém os pacotes do backend, incluindo:
+- `back/src/main/java/com/omnira`: Contém os pacotes do backend, incluindo:
   - **configuration**: Configurações do aplicativo.
   - **domain**: Definições de entidades e modelos de dados.
   - **service**: Lógica de negócio e serviços do sistema.
   - **controller**: Controladores responsáveis pela interação com o frontend.
 
-- `src/main/resources`: Contém recursos estáticos e templates, como folhas de estilo CSS e arquivos HTML.
+- `back/src/main/resources`: Contém recursos estáticos e templates, como folhas de estilo CSS e arquivos HTML.
 
+- `database`: Contém scripts para a criação e inicialização do banco de dados PostgreSQL.
+  - **schema.sql**: Script para a criação das tabelas no banco de dados.
+  - **data.sql**: Script para a inserção de dados iniciais no banco de dados.
 
+- `front`: Contém o código do frontend, com tecnologias como HTML, CSS e JavaScript para a construção da interface do usuário.
 
+## Como Rodar o Projeto
 
+### 1. Back-end (Spring Boot)
+
+O back-end da aplicação é construído com Spring Boot. Para rodar o projeto do back-end, siga os seguintes passos:
+
+#### Requisitos:
+- Java 17 ou superior
+- Maven
+- PostgreSQL
+
+#### Passos:
+
+1. **Clone o repositório:**
+
+   ```bash
+   git clone https://github.com/seu-usuario/omnira-erp.git
+   cd omnira-erp
