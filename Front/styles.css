@@ -1,64 +1,163 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #ffffff;
-    color: #b22222; /* Vermelho aconchegante */
+/* Reset básico de margens e padding */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-header {
-    background-color: #f0f0f0;
-    padding: 1rem;
+/* Cor de fundo e fonte geral */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container principal */
+.content {
+    width: 100%;
+    max-width: 900px;
     text-align: center;
 }
 
-h1 {
-    margin: 0;
+/* Título principal */
+.main-title {
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 40px;
+    transition: all 0.3s ease;
 }
 
-nav {
+.main-title:hover {
+    color: #FF6347;
+    transform: scale(1.1);
+}
+
+/* Estilo dos botões de navegação */
+.buttons {
     display: flex;
+    flex-direction: column;
+    gap: 20px;
     justify-content: center;
-    margin: 1rem 0;
+    align-items: center;
 }
 
 .nav-btn {
-    background-color: #b22222;
-    color: #ffffff;
-    padding: 0.5rem 1rem;
-    margin: 0 0.5rem;
+    background-color: #FF6347;
+    color: white;
+    padding: 16px 30px;
+    font-size: 1.2rem;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .nav-btn:hover {
-    background-color: #8b1a1a;
+    background-color: #FF4500;
+    transform: translateY(-4px);
 }
 
-.tab-content {
-    padding: 1rem;
-    display: none;
+.nav-btn:active {
+    background-color: #FF6347;
+    transform: translateY(2px);
 }
 
-.tab-content.active {
-    display: block;
+/* Estilo para a seção de estoque */
+.stock-item {
+    font-size: 1.2rem;
+    margin-top: 15px;
 }
 
-.btn {
-    background-color: #b22222;
-    color: #ffffff;
-    padding: 0.5rem 1rem;
-    margin: 0.5rem 0;
+.stock-quantity {
+    font-weight: bold;
+    color: #FF6347;
+}
+
+.update-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1rem;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
 }
 
-.btn:hover {
-    background-color: #8b1a1a;
+.update-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
 }
 
-#productList, #pontoStatus, #stockView {
-    margin-top: 1rem;
-    padding: 0.5rem;
-    border: 1px solid #b22222;
+.update-btn:active {
+    background-color: #4CAF50;
+    transform: translateY(1px);
+}
+
+/* Estilo do botão de voltar */
+.back-btn {
+    background-color: #607D8B;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.back-btn:hover {
+    background-color: #546e7a;
+    transform: translateY(-2px);
+}
+
+.back-btn:active {
+    background-color: #607D8B;
+    transform: translateY(1px);
+}
+
+/* Efeitos de animação */
+.fade-in {
+    animation: fadeInEffect 0.8s ease-in-out;
+}
+
+@keyframes fadeInEffect {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/* Estilo do botão de voltar */
+.back-btn {
+    background-color: #607D8B;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.back-btn:hover {
+    background-color: #546e7a;
+    transform: translateY(-2px);
+}
+
+.back-btn:active {
+    background-color: #607D8B;
+    transform: translateY(1px);
 }

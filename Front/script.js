@@ -1,99 +1,130 @@
-// Classe Produto
-class Produto {
-    constructor(nome, quantidade) {
-        this.nome = nome;
-        this.quantidade = quantidade;
-    }
-}
+document.addEventListener("DOMContentLoaded", function () {
 
-// Classe Estoque
-class Estoque {
-    constructor() {
-        this.produtos = [];
+    // Função para navegação entre as páginas
+    function navigateToPage(page) {
+        window.location.href = page + '.html';
     }
 
-    adicionarProduto(produto) {
-        this.produtos.push(produto);
-        alert(`Produto ${produto.nome} adicionado ao estoque.`);
+    // Atualizar Estoque
+    function updateEstoque(productId, newQuantity) {
+        let productElement = document.getElementById('product-' + productId);
+        if (productElement) {
+            productElement.querySelector('.stock-quantity').textContent = newQuantity;
+            alert(`Estoque atualizado para o Produto ${productId} com a quantidade ${newQuantity}`);
+            fadeIn(productElement);
+        }
     }
 
-    listarProdutos() {
-        return this.produtos;
-    }
-}
-
-// Classe Funcionario
-class Funcionario {
-    constructor(nome) {
-        this.nome = nome;
-        this.ponto = [];
+    // Atualizar Ponto
+    function updatePonto(employeeId, newPonto) {
+        let pontoElement = document.getElementById('employee-' + employeeId);
+        if (pontoElement) {
+            pontoElement.querySelector('.ponto-status').textContent = newPonto;
+            alert(`Ponto atualizado para o Funcionário ${employeeId} com o status: ${newPonto}`);
+            fadeIn(pontoElement);
+        }
     }
 
-    marcarPonto(tipo) {
-        const dataHora = new Date().toLocaleString();
-        this.ponto.push({ tipo, dataHora });
-        return `${tipo} marcado às ${dataHora}`;
+    // Calcular total de estoque
+    function calculateTotalEstoque() {
+        let total = 0;
+        let estoqueItems = document.querySelectorAll('.stock-item');
+        estoqueItems.forEach(function (item) {
+            total += parseInt(item.querySelector('.stock-quantity').textContent);
+        });
+        alert(`O total de itens em estoque é: ${total}`);
     }
 
-    verHistoricoPonto() {
-        return this.ponto;
+    // Função para animar os elementos com fade-in
+    function fadeIn(element) {
+        element.classList.add('fade-in');
     }
-}
 
-// Instâncias de Estoque e Funcionário
-const estoque = new Estoque();
-const funcionario = new Funcionario("João Silva");
+    // Função para verificar validade
+    function validateInput(input, minValue) {
+        if (parseInt(input) < minValue) {
+            alert(`O valor deve ser maior ou igual a ${minValue}`);
+            return false;
+        }
+        return true;
+    }
 
-// Função para alternar entre as abas
-function switchTab(tabId) {
-    document.querySelectorAll('.tab-content').forEach(section => {
-        section.classList.remove('active');
+    // Ações dos botões
+    document.getElementById('estoqueButton').addEventListener('click', function () {
+        navigateToPage('estoque');
     });
-    document.getElementById(tabId).classList.add('active');
-}
 
-// Eventos de navegação
-document.querySelectorAll('.nav-btn').forEach(button => {
-    button.addEventListener('click', () => {
-        const tabId = button.getAttribute('data-tab');
-        switchTab(tabId);
+    document.getElementById('pontoButton').addEventListener('click', function () {
+        navigateToPage('ponto');
     });
-});
 
-// Controle de Estoque
-document.getElementById('addProductForm').addEventListener('submit', event => {
-    event.preventDefault();
-    const nome = document.getElementById('productName').value;
-    const quantidade = parseInt(document.getElementById('productQuantity').value, 10);
-    const novoProduto = new Produto(nome, quantidade);
-    estoque.adicionarProduto(novoProduto);
-    document.getElementById('addProductForm').reset();
-});
+    document.getElementById('relatorioButton').addEventListener('click', function () {
+        navigateToPage('relatorio');
+    });
 
-document.getElementById('viewStockBtn').addEventListener('click', () => {
-    const lista = estoque.listarProdutos();
-    const productList = document.getElementById('productList');
-    productList.innerHTML = "<strong>Produtos em Estoque:</strong><ul>" +
-        lista.map(produto => `<li>${produto.nome} - Quantidade: ${produto.quantidade}</li>`).join('') +
-        "</ul>";
-});
+    document.getElementById('backToHome').addEventListener('click', function () {
+        navigateToPage('index');
+    });
 
-// Marcação de Ponto
-document.getElementById('checkInBtn').addEventListener('click', () => {
-    const resultado = funcionario.marcarPonto("Entrada");
-    document.getElementById('pontoStatus').innerText = resultado;
-});
+    document.getElementById('backToHomePonto').addEventListener('click', function () {
+        navigateToPage('index');
+    });
 
-document.getElementById('checkOutBtn').addEventListener('click', () => {
-    const resultado = funcionario.marcarPonto("Saída");
-    document.getElementById('pontoStatus').innerText = resultado;
-});
+    document.getElementById('backToHomeRelatorio').addEventListener('click', function () {
+        navigateToPage('index');
+    });
 
-// Visualização de Estoque Completo
-document.getElementById('refreshStockBtn').addEventListener('click', () => {
-    const lista = estoque.listarProdutos();
-    const stockView = document.getElementById('stockView');
-    stockView.innerHTML = "<strong>Estoque Completo:</strong><ul>" +
-        lista.map(produto => `<li>${produto.nome} - Quantidade: ${produto.quantidade}</li>`).join('') +
-        "</ul>";
+    // Interações no controle de estoque
+    const estoqueButton = document.querySelector('.update-btn');
+    if (estoqueButton) {
+        estoqueButton.addEventListener('click', function () {
+            const quantityInput = prompt("Digite a nova quantidade do produto:");
+            if (validateInput(quantityInput, 1)) {
+                updateEstoque(1, quantityInput);
+            }
+        });
+    }
+
+    // Exemplo de clique para atualizar ponto
+    const pontoButton = document.querySelector('.update-btn');
+    if (pontoButton) {
+        pontoButton.addEventListener('click', function () {
+            const statusInput = prompt("Digite o status do ponto (Presente/Ausente):");
+            updatePonto(1, statusInput);
+        });
+    }
+
+});
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Função de navegação de volta
+    const backToHomeButton = document.getElementById('backToHome');
+
+    if (backToHomeButton) {
+        backToHomeButton.addEventListener('click', function () {
+            // Função para voltar à página anterior
+            window.history.back();
+        });
+    }
+
+    // Se você preferir redirecionar para a página inicial, use:
+    // window.location.href = 'index.html';  // Substitua 'index.html' pelo nome do arquivo correto.
+
+    // Ações dos outros botões para navegação entre as telas
+    document.getElementById('estoqueButton').addEventListener('click', function () {
+        navigateToPage('estoque');
+    });
+
+    document.getElementById('pontoButton').addEventListener('click', function () {
+        navigateToPage('ponto');
+    });
+
+    document.getElementById('relatorioButton').addEventListener('click', function () {
+        navigateToPage('relatorio');
+    });
+
+    // Função para navegação entre as páginas
+    function navigateToPage(page) {
+        window.location.href = page + '.html';
+    }
 });
