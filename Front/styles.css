@@ -1,7 +1,7 @@
 /* Definindo estilo global para a página */
 body {
     font-family: 'Arial', sans-serif; /* Font para a página */
-    background-color: #000000; /* Fundo preto */
+    background-color: #002929; /* Fundo preto */
     color: #00FFFF; /* Texto azul */
     margin: 0;
     padding: 0;
@@ -41,6 +41,15 @@ label {
     display: block;
     font-size: 18px; /* Aumentando o tamanho da fonte das labels */
     margin: 15px 0 5px;
+}
+
+header{
+
+}
+
+.logo{
+
+    
 }
 
 input {
@@ -115,6 +124,7 @@ a:hover {
     width: 100%;
     padding: 15px;
 }
+
 
 /* Responsividade */
 @media (max-width: 768px) {
