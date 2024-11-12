@@ -1,23 +1,46 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estoque - Projeto Web</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!-- Tela de Estoque -->
-<div class="estoque-container">
-  <h1>Estoque</h1>
-  <button onclick="cadastrarProduto()">Cadastrar Produto</button>
-  <button onclick="atualizarProduto()">Atualizar Produto</button>
-  <button onclick="removerProduto()">Remover Produto</button>
-  <button onclick="consultarProduto()">Consultar Produto</button>
-  <button onclick="gerarRelatorioEstoque()">Gerar Relatório de Estoque</button>
-  <button onclick="location.href='home.html'">Voltar</button>
-</div>
-
-<script src="scripts.js"></script>
+    <div class="content">
+        <h1>Gestão de Estoque</h1>
+        <button onclick="window.location.href='cadastro-produto.html'">Cadastrar Produto</button>
+        <h2>Produtos em Estoque</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Quantidade</th>
+                    <th>Preço</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0001</td>
+                    <td>Produto 1</td>
+                    <td>50</td>
+                    <td>R$ 100,00</td>
+                    <td><button>Editar</button> <button>Excluir</button></td>
+                </tr>
+                <tr>
+                    <td>0002</td>
+                    <td>Produto 2</td>
+                    <td>30</td>
+                    <td>R$ 150,00</td>
+                    <td><button>Editar</button> <button>Excluir</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="sidebar">
+      <button onclick="location.href='home.html'">Voltar</button>
+    </div>
 </body>
 </html>
