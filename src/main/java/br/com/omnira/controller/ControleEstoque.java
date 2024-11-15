@@ -1,7 +1,7 @@
 package br.com.omnira.controller;
 
-import br.com.projeto.omnira.domain.Produto;
-import br.com.projeto.omnira.service.ServicoEstoque;
+import br.com.omnira.domain.Produto;
+import br.com.omnira.service.ServicoEstoque;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -3,7 +3,7 @@ package br.com.omnira.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.jpa.repository.JpaRepository;
-import br.com.projeto.omnira.domain.RegistroPonto;
+import br.com.omnira.domain.RegistroPonto;
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 

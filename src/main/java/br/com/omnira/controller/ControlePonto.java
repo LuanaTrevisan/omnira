@@ -1,7 +1,7 @@
 package br.com.omnira.controller;
 
-import br.com.projeto.omnira.domain.RegistroPonto;
-import br.com.projeto.omnira.service.ServicoPonto;
+import br.com.omnira.domain.RegistroPonto;
+import br.com.omnira.service.ServicoPonto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

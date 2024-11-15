@@ -1,6 +1,6 @@
 package br.com.omnira.service;
 
-import br.com.projeto.omnira.domain.Produto;
+import br.com.omnira.domain.Produto;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
